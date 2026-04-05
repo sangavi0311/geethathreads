@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="title"></h2>
+<div id="items"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
+
+document.getElementById("title").innerText = type;
+
+const images = {
+  blouse: [
+    "https://via.placeholder.com/150",
+    "https://via.placeholder.com/150"
+  ],
+  daily: [
+    "https://via.placeholder.com/150"
+  ],
+  school: [
+    "https://via.placeholder.com/150"
+  ],
+  festive: [
+    "https://via.placeholder.com/150"
+  ]
+};
+
+const container = document.getElementById("items");
+
+images[type].forEach(img=>{
+  container.innerHTML += `<img src="${img}" onclick="order('${type}')">`;
+});
+
+function order(type){
+  window.location.href = "order.html?product=" + type;
+}
+</script>
+
+</body>
+</html>

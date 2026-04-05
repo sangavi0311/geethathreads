@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Wear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2 class="title">Choose Daily Wear✨</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Wear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Wear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+<div class="container">
+  <div class="grid">
+
+  <!-- 1 -->
+  <div class="card">
+    <img src="images/casualkurthi.webp">
+    <h3>Casual Kurthi</h3>
+    <button onclick="orderNow('Casual Kurthi', 'images/casualkurthi.webp')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <img src="images/officewear.jpg">
+    <h3>Office Wear</h3>
+    <button onclick="orderNow('Office Wear', 'images/officewear.jpg')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <img src="images/shorttops.webp">
+    <h3>Short Tops</h3>
+    <button onclick="orderNow('Short Tops', 'images/shorttops.webp')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <img src="images/maxi.jpg">
+    <h3>Maxi Dress</h3>
+    <button onclick="orderNow('Maxi Dress', 'images/maxi.jpg')">
+      Order Now
+    </button>
+  </div>
+
+</div>
+
+<!-- JS -->
+<script>
+function orderNow(name, image) {
+
+  // popup
+  alert(name + " selected successfully!");
+
+  // store product
+  localStorage.setItem("productName", name);
+  localStorage.setItem("productImage", image);
+
+  // go to order page
+  window.location.href = "order.html";
+}
+</script>
+
+</body>
+</html>
+
+<script>
+function go(page) {
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>
+
+<script>
+function go(page) {
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>

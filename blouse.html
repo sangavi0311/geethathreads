@@ -1,0 +1,56 @@
+ <link rel="stylesheet" href="../style.css">
+<h2 class="title">CHOOSE YOUR BLOUSE DESIGN</h2>
+    
+  <div class="container">
+    <div class="grid">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <img src="images/princesscut.jpg" onclick="openImage(this)">
+    <h3 class="blouse-name">Princess Cut Blouse</h3>
+    <button onclick="orderNow('Princess Cut Blouse', 'images/princesscut.jpg')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <img src="images/boatneck.webp" onclick="openImage(this)">
+    <h3 class="blouse-name">Boat Neck Blouse</h3>
+    <button onclick="orderNow('Boat Neck Blouse', 'images/boatneck.webp')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <img src="images/backless.jpeg" onclick="openImage(this)">
+    <h3 class="blouse-name">Backless Blouse</h3>
+    <button onclick="orderNow('Backless Blouse', 'images/backless.jpeg')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <img src="images/puffsleeve.jpg" onclick="openImage(this)">
+    <h3 class="blouse-name">Puff Sleeve Blouse</h3>
+    <button onclick="orderNow('Puff Sleeve Blouse', 'images/puffsleeve.jpg')">
+      Order Now
+    </button>
+  </div>
+
+</div>
+
+  
+
+<script>
+function orderNow(name, image) {
+  alert(name + " selected successfully!");
+
+  localStorage.setItem("productName", name);
+  localStorage.setItem("productImage", image);
+
+  window.location.href = "order.html";
+}
+</script>

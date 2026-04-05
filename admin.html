@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Orders</title>
+</head>
+<body style="font-family:Arial; text-align:center;">
+
+<h1>📦 Orders Dashboard</h1>
+
+<div id="orders"></div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyB-ZiJ6IMzNVTh1aiOMinYwpVpvnGMpLNo",
+  authDomain: "geetha-threads.firebaseapp.com",
+  projectId: "geetha-threads"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const ordersDiv = document.getElementById("orders");
+
+db.collection("orders").onSnapshot(snapshot => {
+  ordersDiv.innerHTML = "";
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+
+    ordersDiv.innerHTML += `
+      <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+        <h3>${data.name}</h3>
+        <p><b>Product:</b> ${data.product}</p>
+        <p><b>Phone:</b> ${data.phone}</p>
+        <p><b>Details:</b> ${data.details}</p>
+      </div>
+    `;
+  });
+});
+</script>
+
+</body>
+</html>

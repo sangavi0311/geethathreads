@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Geetha Threads</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      margin-top: 40px;
+    }
+
+    .buttons button {
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: #e0e0e0;
+    }
+
+    input, textarea {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 250px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button.order {
+      background: #ff4da6;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Place Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Place Your Order ✨</h2>
+
+<div class="order-container">
+
+  <!-- PRODUCT -->
+  <div class="product-box">
+    <img id="productImage">
+    <h3 id="productName"></h3>
+  </div>
+
+  <!-- NOTE -->
+  <p class="note">
+    📏 Note: You can mention your measurements in the details section below.
+  </p>
+
+  <!-- FORM -->
+  <input type="text" id="name" placeholder="Enter your name">
+  <input type="text" id="phone" placeholder="Enter phone number">
+  <textarea id="details" placeholder="Enter design & measurement details"></textarea>
+
+  <button onclick="sendToWhatsApp()">Place Order</button>
+
+  <!-- THANK YOU -->
+  <p class="Thank-you">
+    💖 Thank you for trusting us with your style! We’ll craft it perfectly for you.
+  </p>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+window.onload = function() {
+  let name = localStorage.getItem("productName");
+  let image = localStorage.getItem("productImage");
+
+  document.getElementById("productName").innerText = name;
+  document.getElementById("productImage").src = image;
+};
+
+function sendToWhatsApp() {
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let details = document.getElementById("details").value;
+
+  let product = localStorage.getItem("productName");
+
+  let message =
+    "Name: " + name +
+    "%0APhone: " + phone +
+    "%0AProduct: " + product +
+    "%0ADetails: " + details;
+
+  let url = "https://wa.me/917397311691?text=" + message;
+
+  window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>
+  <!-- 🔥 SIMPLE FIREBASE (WORKING) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyB-ZiJ6IMzNVTh1aiOMinYwpVpvnGMpLNo",
+      authDomain: "geetha-threads.firebaseapp.com",
+      projectId: "geetha-threads"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    let selectedProduct = "Blouse";
+
+    function selectProduct(product) {
+      selectedProduct = product;
+      document.getElementById("selected").innerText = "Selected: " + product;
+    }
+function placeOrder() {
+  const name = document.getElementById("name").value;
+  const product = selectedProduct;
+  const phone = document.getElementById("phone").value;
+  const details = document.getElementById("details").value;
+
+  const order = {
+    name: name,
+    product: product,
+    phone: phone,
+    details: details,
+    status: "Pending"
+  };
+
+  db.collection("orders").add(order)
+    .then(() => {
+
+      alert("Order placed successfully! 🎉");
+
+      // 🔥 WhatsApp message
+      const message = `New Order Received!\n\nName: ${name}\nProduct: ${product}\nPhone: ${phone}\nDetails: ${details}`;
+
+      // 👉 Replace this number with OWNER number
+      const whatsappNumber = "917397311691";
+
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank");
+
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+      db.collection("orders").add(order)
+        .then(() => {
+          alert("Order placed successfully! 🎉");
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Error: " + error.message);
+        });
+    }
+  </script>
+
+</body>
+</html>

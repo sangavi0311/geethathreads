@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2 class="title">Choose Festive Wear ✨</h2>
+
+<div class="container">
+  <div class="grid">
+
+  <!-- ANAKALI -->
+  <div class="card">
+    <img src="images/anarkali.webp">
+    <h3>Anakali</h3>
+    <button onclick="orderNow('Anakali', 'images/anarkali.webp')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- HALF SARI -->
+  <div class="card">
+    <img src="images/halfsaree.webp">
+    <h3>Half Saree</h3>
+    <button onclick="orderNow('Half Saree', 'images/halfsaree.webp')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- LEHENGA -->
+  <div class="card">
+    <img src="images/leghanga.jpg">
+    <h3>Lehenga</h3>
+    <button onclick="orderNow('Lehenga', 'images/leghanga.jpg')">
+      Order Now
+    </button>
+  </div>
+
+  <!-- SALWAR -->
+  <div class="card">
+    <img src="images/salwar.jpg">
+    <h3>Salwar (Combless)</h3>
+    <button onclick="orderNow('Salwar kameez)', 'images/salwar.jpg')">
+      Order Now
+    </button>
+  </div>
+
+</div>
+
+<script>
+function orderNow(name, image) {
+  alert(name + " selected successfully!");
+
+  localStorage.setItem("productName", name);
+  localStorage.setItem("productImage", image);
+
+  window.location.href = "order.html";
+}
+</script>
+
+</body>
+</html>
